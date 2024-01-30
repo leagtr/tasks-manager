@@ -1,10 +1,11 @@
 <?php 
-function addTask($user, $name, $date){
+function addTask($user, title, $description, $date){
     include '../models/db.php';
-    $req = $db->prepare('INSERT INTO tasks(user, name, date) VALUES(:user, :name, :date)');
+    $req = $db->prepare('INSERT INTO tasks(user, title, description, date) VALUES(:user, :title, :description, :date)');
     $req->execute(array(
         'user' => $user,
-        'name' => $name,
+        'title' => $title,
+        'description' => $description,
         'date' => $date
     ));
 }
