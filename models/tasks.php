@@ -1,5 +1,5 @@
 <?php 
-function addTask($user, title, $description, $date){
+function addTask($user, $title, $description, $date){
     include '../models/db.php';
     $req = $db->prepare('INSERT INTO tasks(user, title, description, date) VALUES(:user, :title, :description, :date)');
     $req->execute(array(
